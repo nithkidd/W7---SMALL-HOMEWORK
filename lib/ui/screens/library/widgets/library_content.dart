@@ -60,13 +60,11 @@ class SongTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LibraryViewModel libraryViewModel = context.watch<LibraryViewModel>();
     return ListTile(
       onTap: onTap,
       title: Text(song.title),
-      trailing: Text(
-        isPlaying ? "Playing" : "Stop",
-        style: TextStyle(color: isPlaying == true ? Colors.amber : Colors.red),
-      ),
+      trailing: libraryViewModel.toggleSongColor(song),
     );
   }
 }

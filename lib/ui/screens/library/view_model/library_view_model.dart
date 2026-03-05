@@ -42,4 +42,10 @@ class LibraryViewModel extends ChangeNotifier {
   void toggleSong(Song song) {
     isPlaying(song) ? stopSong(song) : playSong(song);
   }
+
+  Widget toggleSongColor(Song song) {
+    return isPlaying(song)
+        ? const Text("Playing", style: TextStyle(color: Colors.amber))
+        : const Text("Stop", style: TextStyle(color: Colors.red));
+  }
 }
